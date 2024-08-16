@@ -21,7 +21,7 @@ const ProductListingPage = () => {
 return (
    <div>
         
-            <h1>Product Listing</h1>
+            
             <ProductList products={products} />
         
    </div>

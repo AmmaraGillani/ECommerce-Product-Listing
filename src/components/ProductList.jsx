@@ -6,11 +6,12 @@ const ProductList = ({products}) => {
         return <p>No products available.</p>;
     }
     return (
-    <div>
+        
+        <section className=" w-full mx-auto grid grid-cols-5 md:grid-cols-2 lg:grid-cols-5 gap-y-24 gap-x-14 mt-10 mb-5">
         {products.map(product => (
             <ProductItem key = {product.id} product = {product} />
         ))}
-    </div>
+    </section>
   )
 }
 
