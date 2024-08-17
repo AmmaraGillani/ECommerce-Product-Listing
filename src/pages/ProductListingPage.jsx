@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { fetchProducts } from '../service/api';
 import ProductList from '../components/ProductList';
+import Header from '../components/Header';
+
 
 const ProductListingPage = () => {
+  const [searchTerm, setSearchTerm] = useState('');
   const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredPrducts] = useState([]);
     
   useEffect(() => {
         const getProducts = async () => {
@@ -17,12 +21,19 @@ const ProductListingPage = () => {
         getProducts();
     },[]);
 
+    useEffect(() => {
+      const results = products.filter(product => 
+        product.title && product.title.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      setFilteredPrducts(results);
+    }, [searchTerm, products]);
+    
 
 return (
    <div>
         
-            
-            <ProductList products={products} />
+            <Header searchTerm = {searchTerm} setSearchTerm = {setSearchTerm} />
+            <ProductList products={filteredProducts} />
         
    </div>
   );

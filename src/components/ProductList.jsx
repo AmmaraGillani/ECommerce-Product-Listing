@@ -7,7 +7,7 @@ const ProductList = ({products}) => {
     }
     return (
         
-        <section className=" w-full mx-auto grid grid-cols-5 md:grid-cols-2 lg:grid-cols-5 gap-y-24 gap-x-14 mt-10 mb-5">
+        <section className=" grid grid-rows-4 grid-flow-col gap-4 w-full mx-auto grid-cols-5 md:grid-cols-2 lg:grid-cols-5 gap-y-8 gap-x-8 mt-10 mb-5">
         {products.map(product => (
             <ProductItem key = {product.id} product = {product} />
         ))}
